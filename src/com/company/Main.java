@@ -10,10 +10,9 @@ public class Main {
         System.out.println("Enter some text: ");
         String str = scanner.nextLine();
         countVowels(str);   //1. Count Vowels: Implement a method that counts the number of vowels in a given string. Consider both uppercase and lowercase vowels.
-        reverseString(str); //2. Reverse String: Implement a method that reverses a given string. (try not to use ready methods)
-        makePalindromeWithParts(str);
-        makePalindrome(str);
-
+        //reverseString(str); //2. Reverse String: Implement a method that reverses a given string. (try not to use ready methods)
+        makePalindrome(str); //3. Palindrome: Implement a method that convert a given string to a palindrome.
+        countLetters(str); //4. Letter Count: Implement a method that counts the number of letter in a given string. Assume that string are separated by spaces. (\\s+) -> spaces
     }
     public static void countVowels(String str){
         int k = 0;
@@ -45,40 +44,28 @@ public class Main {
         return reversedString;
     }
 
-    public static String makePalindromeWithParts(String str){
 
-        String palindrome1 = "";
-        String palindrome2 = "";
-        String firstPart = "";
-
-        if (str == reverseString(str)){
-            System.out.println("String is already palindrome " + str);
-            return str;
-        }
-
-        if (str.length() % 2 == 0){
-            firstPart = str.substring(0,str.length()/2);
-        }
-        else{
-            firstPart = str.substring(0,str.length()/2+1);
-        }
-
-        String secondPart1 = reverseString(firstPart);
-        String secondPart2 = reverseString(firstPart.substring(0,firstPart.length()-1));
-        palindrome1 = firstPart + secondPart1;
-        palindrome2 = firstPart + secondPart2;
-        System.out.println("Palindrome created with the first part of word " + palindrome1);
-        System.out.println("Palindrome created with the first part of word " + palindrome2);
-
-        return palindrome1;
-    }
     public static String makePalindrome(String str){
         String palindrome = str + reverseString(str);
         System.out.println("Palindrome with adding reversed word to the end of word: " + palindrome);
         return str;
     }
 
+    public static int countLetters(String str){
 
+        int countOfSpaces = 0, countOfLetters = 0;
+        char[] arrOfLetters = str.toCharArray();
+
+        for (char c: arrOfLetters) {
+            if (c == '\u0020' || c == '\u0009'){
+                countOfSpaces++;
+            }
+        }
+
+        countOfLetters = str.length() - countOfSpaces;
+        System.out.println("The number of letters in a string " + str + " is\u0020" + countOfLetters);
+        return countOfLetters;
+    }
 
 
 
