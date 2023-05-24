@@ -14,6 +14,7 @@ public class Main {
         makePalindrome(str); //3. Palindrome: Implement a method that convert a given string to a palindrome.
         countLetters(str); //4. Letter Count: Implement a method that counts the number of letter in a given string. Assume that string are separated by spaces. (\\s+) -> spaces
     }
+
     public static void countVowels(String str){
         int k = 0;
         List<Character> listOfVowels = Arrays.asList('A','a', 'E','e','I','i','O','o','U','u');
@@ -28,26 +29,19 @@ public class Main {
         System.out.println("The number of vowels in a given string is " + k);
     }
     public static String reverseString(String str){
-        String reversedString = "";
-        char[] arrOfLetters = str.toCharArray();
-        char w;
-        int newLength = (arrOfLetters.length)/2;
-        for (int i = 0; i < newLength; i++) {
-            w = arrOfLetters[i]; arrOfLetters[i] = arrOfLetters[arrOfLetters.length - i - 1]; arrOfLetters[arrOfLetters.length - i - 1] = w;
-        }
-        for (int i = 0; i < arrOfLetters.length; i++) {
-            reversedString += arrOfLetters[i];
 
-        }
-        System.out.println("The original string is " + str);
-        System.out.println("The reversed string is " + reversedString);
+        StringBuilder stringBuilder = new StringBuilder(str);
+        String reversedString = stringBuilder.reverse().toString();
+        System.out.println("\nThe original string is " + str);
+        System.out.println("\nThe reversed string is " + reversedString);
         return reversedString;
+
     }
 
 
     public static String makePalindrome(String str){
         String palindrome = str + reverseString(str);
-        System.out.println("Palindrome with adding reversed word to the end of word: " + palindrome);
+        System.out.println("\nPalindrome with adding reversed word to the end of word: " + palindrome);
         return str;
     }
 
@@ -63,7 +57,7 @@ public class Main {
         }
 
         countOfLetters = str.length() - countOfSpaces;
-        System.out.println("The number of letters in a string " + str + " is\u0020" + countOfLetters);
+        System.out.println("\nThe number of letters in a string " + str + " is\u0020" + countOfLetters);
         return countOfLetters;
     }
 
