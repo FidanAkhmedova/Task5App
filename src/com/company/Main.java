@@ -21,6 +21,7 @@ public class Main {
         char[] arrOfLetters = str.toCharArray();
 
         for (char arrOfLetter : arrOfLetters) {
+
             if (listOfVowels.contains(arrOfLetter)) {
                 k++;
             }
